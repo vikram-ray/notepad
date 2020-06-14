@@ -1,0 +1,20 @@
+.notepad {
+    overflow-y: scroll;
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+}
+
+.full {
+    height: 100%;
+    width: 100%;
+}
+
+.button_row {
+    float: right;
+    position: static;
+}
