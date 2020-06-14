@@ -6,7 +6,7 @@ http://notepad.highky.com/
 
 ## All changes and fixes are welcome
 
-## to run this botepad in you local-system
+## to run this Notepad in you local-system
 - git clone https://github.com/rayvikram/notepad.git
 - cd notepad
 - yarn
