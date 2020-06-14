@@ -10,10 +10,16 @@ import classes from './Notepad.module.css';
 
 export default function(){
 
+    // to store the texts that user type
+    // 'text' is used to store the value and 'setText' is used to change 'text' with new value.
     const [text, setText] = useState(localStorage.getItem('notepad'));
     const [saving, setsaving] = useState(false);
     const [showSaving, setShowSaving] = useState(false);
 
+
+    // handleChange is called when user makes any changes in notepad. It -
+        // - store the new value in 'text'
+        // - sets localStorage with new value for persistance
     const handleChange = e => {
         setText(e.target.value);
         setsaving(true);
@@ -24,6 +30,12 @@ export default function(){
         localStorage.setItem('notepad', e.target.value);
     }
 
+    // downloadAsTxt is used to download text file with all content, 
+    // it is called when Download button is clicked. It-
+    // - create a new element <a/> and changes its attributes ( href to a text file )
+    // which will contain all text and will download a file if clicked.
+    // - We programatically call .click() on <a/> to download the text file.
+    // for more refer https://www.w3schools.com/tags/att_a_download.asp
     const downloadAsTxt = (filename, text) => {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -52,6 +64,9 @@ export default function(){
             </Col>
             <Col>
             <ButtonGroup className={classes.button_row}>
+                 {/* our PrintJs takes 2 input - 1) ID of the element that it will print, (in out case id is 'notepad')  */}
+                 {/* 2) Type of the element  */}
+                {/* visit html printing https://printjs.crabbly.com/ */}
                 <Button size="sm" onClick={()=>PrintJs('notepad', 'html')} variant="secondary">Print</Button>
                 <Button size="sm" onClick={()=>downloadAsTxt('notepad', text)} variant="secondary">Download</Button>
             </ButtonGroup>                
